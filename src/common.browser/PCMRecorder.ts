@@ -90,15 +90,7 @@ export class PcmRecorder implements IRecorder {
         const skipAudioWorklet = !!this.privSpeechProcessorScript && this.privSpeechProcessorScript.toLowerCase() === "ignore";
 
         if (!!context.audioWorklet && !skipAudioWorklet) {
-            /* eslint-disable-next-line */
-           // this.privSpeechProcessorScript = new URL( /* webpackChunkName: 'script_processor_audioWorklet' */ "speech-processor.js", import.meta.url).toString(); 
 
-            //context.audioWorklet
-               // .addModule(this.privSpeechProcessorScript)
-               // .then((): void => {
-               //     connectWorkletToMicInput(context);
-               // })
-               // .catch((): void => {
                     const workletScript = `class SP extends AudioWorkletProcessor {
                         constructor(options) {
                         super(options);
@@ -125,7 +117,6 @@ export class PcmRecorder implements IRecorder {
                         .catch((): void => {
                             attachScriptProcessor();
                         });
-                //});
         } else {
             try {
                 attachScriptProcessor();

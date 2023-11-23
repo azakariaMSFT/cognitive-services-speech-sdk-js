@@ -5,7 +5,6 @@
 src/**/*.js
 tests/**/*.js
 !tests/AudioPlayerTests/server/server.js
-distrib/*
 secrets/*
 /**/speech.key
 .idea/
